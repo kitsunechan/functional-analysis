@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>little-l-p-space</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<p>実数 <span class="math inline">\(p \geq 1\)</span> に対し</p>
+<p><span class="math display">\[
+l^p := \left\{
+    (x_n)_{n=1}^\infty \subset \mathbb{R} :
+    \sum_{n=1}^\infty |x_n|^p &lt; \infty
+\right\}
+\]</span></p>
+<p>と記す．</p>
+<hr />
+<p>写像 <span class="math inline">\(d_p: l^p \times l^p \to
+\mathbb{R}\)</span> を任意の <span
+class="math inline">\(x=(x_n)_{n=1}^\infty, y=(y_n)_{n=1}^\infty \in
+l^p\)</span> に対して</p>
+<p><span class="math display">\[
+d_p(x, y) := \left( \sum_{n=1}^\infty |x_n - y_n|^p \right)^{1/p}
+\]</span></p>
+<p>と定める．</p>
+<p>組 <span class="math inline">\((l^p, d_p)\)</span>
+は距離空間となる．この距離空間を単に <span
+class="math inline">\(l^p\)</span> と記す．</p>
+<!-- TODO $d_p$ が定義できることの証明 -->
+<hr />
+<p><span class="math inline">\(d_p\)</span> が <span
+class="math inline">\(l^p\)</span> 上の距離関数であることの証明： <span
+class="math inline">\(x=(x_n)_{n=1}^\infty, y=(y_n)_{n=1}^\infty,
+z=(z_n)_{n=1}^\infty \in l^p\)</span> とする．</p>
+<ol type="i">
+<li><p><span class="math inline">\(d_p(x, y) \geq 0\)</span> を示す． 各
+<span class="math inline">\(n\)</span> に対して <span
+class="math inline">\(|x_n - y_n|^p \geq 0\)</span>
+が成り立つので，<span class="math inline">\((\sum_{n=1}^\infty |x_n -
+y_n|^p)^{1/p} \geq 0\)</span> が成り立つ．</p></li>
+<li><p><span class="math inline">\(d_p(x, y) = 0 \implies x = y\)</span>
+を示す． <span class="math inline">\(d_p(x, y) = 0\)</span> と仮定する．
+<span class="math inline">\(\sum_{n=1}^\infty |x_n - y_n|^p\)</span>
+より各 <span class="math inline">\(n\)</span> について <span
+class="math inline">\(|x_n - y_n|=0\)</span> が成り立つ． したがって各
+<span class="math inline">\(n\)</span> に対して <span
+class="math inline">\(x_n = y_n\)</span> となり，<span
+class="math inline">\(x = y\)</span> が成り立つ．</p></li>
+<li><p><span class="math inline">\(d_p(x, y) = d_p(y, x)\)</span>
+を示す． 各 <span class="math inline">\(n\)</span> に対して <span
+class="math inline">\(|x_n - y_n| = |y_n - x_n|\)</span>
+であるから，<span class="math inline">\(d_p(x, y) = (\sum_{n=1}^\infty
+|x_n - y_n|^p)^{1/p} = (\sum_{n=1}^\infty |y_n - x_n|^p)^{1/p} = d_p(y,
+x)\)</span> となる．</p></li>
+<li><p><span class="math inline">\(d_p(x, z) \leq d_p(x, y) + d_p(y,
+z)\)</span> を示す． 示すべき不等式は <span class="math display">\[
+\left(\sum_{n=1}^\infty |x_n - z_n|^p\right)^{1/p} \leq
+\left(\sum_{n=1}^\infty |x_n - y_n|^p\right)^{1/p} +
+\left(\sum_{n=1}^{\infty} |y_n - z_n|^p\right)^{1/p}
+\]</span> である．<span class="math inline">\(a_n = x_n - y_n, b_n = y_n
+- z_n\)</span> と置くと，<a
+href="basic/minkowski-inequality.html">Minkowski の不等式</a>より <span
+class="math display">\[
+\left(\sum_{n=1}^\infty |a_n + b_n|^p\right)^{1/p} \leq
+\left(\sum_{n=1}^\infty |a_n|^p\right)^{1/p} +
+\left(\sum_{n=1}^\infty |b_n|^p\right)^{1/p}
+\]</span> が成り立つ．これは示すべき不等式である．</p></li>
+</ol>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>minkowski-inequality</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<p><strong>Minkowski の不等式</strong> (有限版)</p>
+<p><span class="math inline">\(p \geq 1\)</span> とし <span
+class="math inline">\(a_i, b_i \in \mathbb{R}, i=1,...,n\)</span>
+とする．このとき <span class="math display">\[
+\left(\sum_{i=1}^n |a_i + b_i|^p\right)^{1/p} \leq
+\left(\sum_{i=1}^n |a_i|^p\right)^{1/p} +
+\left(\sum_{i=1}^n |b_i|^p\right)^{1/p}
+\]</span> が成り立つ．</p>
+<hr />
+<p>証明：</p>
+<ol type="i">
+<li><p><span class="math inline">\(p=1\)</span> の場合を示す．
+示すべき不等式は <span class="math display">\[
+\sum_{i=1}^n |a_i + b_i| \leq
+\sum_{i=1}^n |a_i| + \sum_{i=1}^n |b_i|
+\]</span> である． 三角不等式より各 <span
+class="math inline">\(i\)</span> について <span
+class="math inline">\(|a_i + b_i| \leq |a_i| + |b_i|\)</span>
+が成り立つ．<span class="math inline">\(i=1,...,n\)</span>
+に渡って和をとれば示すべき不等式となる．</p></li>
+<li><p>すべての <span class="math inline">\(i=1,...,n\)</span> に対して
+<span class="math inline">\(a_i = -b_i\)</span> である場合を示す．
+この場合，各 <span class="math inline">\(i\)</span> に対して <span
+class="math inline">\(|a_i + b_i| = 0\)</span>
+であるから，示すべき不等式の左辺は <span
+class="math inline">\(0\)</span> となり不等式は自明に成り立つ．</p></li>
+<li><p><span class="math inline">\(p&gt;1\)</span>
+であり，少なくとも１つの <span class="math inline">\(i \in
+\{1,...,n\}\)</span> に対して <span class="math inline">\(a_i \neq
+-b_i\)</span> である場合を示す． 各 <span
+class="math inline">\(i\)</span> について三角不等式 <span
+class="math inline">\(|a_i + b_i| \leq |a_i| + |b_i|\)</span> より <span
+class="math display">\[
+\begin{align*}
+\sum_{i=1}^n |a_i + b_i|^p &amp; =
+\sum_{i=1}^n |a_i + b_i|^{p-1} |a_i + b_i| \\ &amp; \leq
+\sum_{i=1}^n |a_i + b_i|^{p-1} |a_i| + \sum_{i=1}^n |a_i + b_i|^{p-1}
+|b_i|
+\end{align*}
+\]</span> が成り立つ．<span class="math inline">\(p&gt;1\)</span> より
+<span class="math inline">\(1/p + 1/q = 1\)</span> となる <span
+class="math inline">\(q &gt; 1\)</span> を取ることができ，<a
+href="holder-inequality.html">Hölder の不等式</a>より <span
+class="math display">\[
+\sum_{i=1}^n |a_i + b_i|^{p-1} |a_i| \leq
+\left(\sum_{i=1}^n |a_i + b_i|^{(p-1)q}\right)^{1/q}
+\left(\sum_{i=1}^n |a_i|^p\right)^{1/p}
+\]</span> および <span class="math display">\[
+\sum_{i=1}^n |a_i + b_i|^{p-1} |b_i| \leq
+\left(\sum_{i=1}^n |a_i + b_i|^{(p-1)q}\right)^{1/q}
+\left(\sum_{i=1}^n |b_i|^p\right)^{1/p}
+\]</span> が成り立つ．したがって <span class="math display">\[
+\sum_{i=1}^n |a_i + b_i|^p \leq
+\left(\sum_{i=1}^n |a_i + b_i|^{(p-1)q}\right)^{1/q}
+\left(
+    \left(\sum_{i=1}^n |a_i|^p\right)^{1/p} +
+    \left(\sum_{i=1}^n |b_i|^p\right)^{1/p}
+\right)
+\]</span> となる．</p></li>
+</ol>
+<p><span class="math inline">\(S = \sum_{i=1}^n |a_i + b_i|^p, A =
+\left(\sum_{i=1}^n |a_i|^p\right)^{1/p}, B = \left(\sum_{i=1}^n
+|b_i|^p\right)^{1/p}\)</span> とおくと，<span
+class="math inline">\((p-1)q=p\)</span> より <span
+class="math display">\[
+S \leq S^{1/q} (A + B)
+\]</span> となる．仮定より少なくとも一つの <span
+class="math inline">\(i\)</span> に対して <span
+class="math inline">\(a_i \neq -b_i\)</span> であるので <span
+class="math inline">\(S \neq 0\)</span> である．不等式の両辺を <span
+class="math inline">\(S^{1/q}\)</span> で割ると，<span
+class="math inline">\(1 - 1/q = 1/p\)</span> より <span
+class="math display">\[
+S^{1/p} \leq A + B
+\]</span> となり，これは示すべき不等式である．</p>
+<hr />
+<p><strong>Minkowski の不等式</strong> (無限版)</p>
+<p><span class="math inline">\(p \geq 1\)</span> とする． <span
+class="math inline">\((a_n)_{n=1}^\infty, (b_n)_{n=1}^\infty \subset
+\mathbb{R}\)</span> とし，<span class="math inline">\(\sum_{n=1}^\infty
+|a_n|^p &lt; \infty, \sum_{n=1}^\infty |b_n|^p &lt; \infty\)</span>
+が成り立つとする． このとき <span class="math display">\[
+\left(\sum_{n=1}^\infty |a_n + b_n|^p\right)^{1/p} \leq
+\left(\sum_{n=1}^\infty |a_n|^p\right)^{1/p} +
+\left(\sum_{n=1}^\infty |b_n|^p\right)^{1/p}
+\]</span> が成り立つ．</p>
+<hr />
+<p>証明： <span class="math inline">\(N\)</span>
+を任意の自然数とすると，有限版の Minkowski の不等式より <span
+class="math display">\[
+\left(\sum_{n=1}^N |a_n + b_n|^p\right)^{1/p} \leq
+\left(\sum_{n=1}^N |a_n|^p\right)^{1/p} +
+\left(\sum_{n=1}^N |b_n|^p\right)^{1/p}
+\]</span> が成り立つ．関数 <span class="math inline">\(x \mapsto
+x^{1/p}\)</span> は <span class="math inline">\(x \geq 0\)</span>
+で連続であるので，<span class="math inline">\(N \to \infty\)</span>
+の極限を取ることにより <span class="math display">\[
+\left(\sum_{n=1}^\infty |a_n + b_n|^p\right)^{1/p} \leq
+\left(\sum_{n=1}^\infty |a_n|^p\right)^{1/p} +
+\left(\sum_{n=1}^\infty |b_n|^p\right)^{1/p}
+\]</span> となる．</p>
+</body>
+</html>
