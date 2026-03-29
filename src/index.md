@@ -1,0 +1,3 @@
+- [Hölder の不等式](basic/holder-inequality.md)
+- [Minkowski の不等式](basic/minkowski-inequality.md)
+- [$l^p$ 空間](little-l-p-space.md)
